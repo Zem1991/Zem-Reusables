@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class QuickCamera : MonoBehaviour
 {
     [Header("Awake")]
-    [SerializeField] private Transform intermediate;
+    [SerializeField] private QuickCameraIntermediate intermediate;
     [SerializeField] private new Camera camera;
 
     [Header("Setup")]
@@ -16,8 +16,15 @@ public partial class QuickCamera : MonoBehaviour
 
     private void Awake()
     {
-        intermediate = GetComponentInChildren<Transform>();
+        intermediate = GetComponentInChildren<QuickCameraIntermediate>();
         camera = GetComponentInChildren<Camera>();
+    }
+
+    public Vector3 Align(Vector3 direction)
+    {
+        Quaternion rotation = Quaternion.Euler(0, intermediate.transform.eulerAngles.y, 0);
+        direction = rotation * direction;
+        return direction;
     }
 
     public void Position(Vector3 position, float lerpRatio)
