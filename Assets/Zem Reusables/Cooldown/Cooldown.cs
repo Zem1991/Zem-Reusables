@@ -27,9 +27,9 @@ public class Cooldown
         current = value;
     }
 
-    public void Update()
+    public void Update(float deltaTime)
     {
-        current = Mathf.Clamp(current - Time.deltaTime, 0, value);
+        current = Mathf.Clamp(current - deltaTime, 0, value);
     }
 
     public bool CanDoAction()
