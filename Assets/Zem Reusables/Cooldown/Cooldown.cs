@@ -3,46 +3,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class Cooldown
+namespace ZemReusables
 {
-    [SerializeField] private Action action;
-    [SerializeField][Min(0F)] private float value;
-    [SerializeField][Min(0F)] private float current;
-
-    public Cooldown(Action action, float value)
+    [Serializable]
+    public class Cooldown
     {
-        this.action = action;
-        this.value = value;
-        Reset();
-    }
+        [SerializeField] private Action action;
+        [SerializeField][Min(0F)] private float value;
+        [SerializeField][Min(0F)] private float current;
 
-    public void Reset()
-    {
-        current = 0;
-    }
+        public Cooldown(Action action, float value)
+        {
+            this.action = action;
+            this.value = value;
+            Reset();
+        }
 
-    public void Fill()
-    {
-        current = value;
-    }
+        public void Reset()
+        {
+            current = 0;
+        }
 
-    public void Update(float deltaTime)
-    {
-        current = Mathf.Clamp(current - deltaTime, 0, value);
-    }
+        public void Fill()
+        {
+            current = value;
+        }
 
-    public bool CanDoAction()
-    {
-        return current <= 0;
-    }
+        public void Update(float deltaTime)
+        {
+            current = Mathf.Clamp(current - deltaTime, 0, value);
+        }
 
-    public bool DoAction()
-    {
-        bool canDo = CanDoAction();
-        if (!canDo) return false;
-        Fill();
-        action.Invoke();
-        return true;
+        public bool CanDoAction()
+        {
+            return current <= 0;
+        }
+
+        public bool DoAction()
+        {
+            bool canDo = CanDoAction();
+            if (!canDo) return false;
+            Fill();
+            action.Invoke();
+            return true;
+        }
     }
 }

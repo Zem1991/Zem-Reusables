@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinFlip
+namespace ZemReusables
 {
-    public bool Flip()
+    public class CoinFlip
     {
-        return Random.Range(0, 2) > 0;
+        public bool Flip()
+        {
+            return Random.Range(0, 2) > 0;
+        }
     }
 }

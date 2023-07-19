@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractSingleton<T> : MonoBehaviour where T : Component
+namespace ZemReusables
 {
-    public static T Instance { get; protected set; }
-
-    protected virtual void Awake()
+    public abstract class AbstractSingleton<T> : MonoBehaviour where T : Component
     {
-        if (Instance == null)
-        {
-            Instance = this as T;
-        }
-        else
-        {
-            Debug.LogWarning("Only one instance of " + GetType() + " may exist! Deleting this extra one.");
-            Destroy(gameObject);
-        }
-    }
+        public static T Instance { get; protected set; }
 
-    public static bool CheckReference(T reference)
-    {
-        return reference != null
-            && reference == Instance;
+        protected virtual void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this as T;
+            }
+            else
+            {
+                Debug.LogWarning("Only one instance of " + GetType() + " may exist! Deleting this extra one.");
+                Destroy(gameObject);
+            }
+        }
+
+        public static bool CheckReference(T reference)
+        {
+            return reference != null
+                && reference == Instance;
+        }
     }
 }

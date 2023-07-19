@@ -2,33 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundEffectPlayer
+namespace ZemReusables
 {
-    private AudioClip audioClip;
-    private AudioSourceOneShot source;
-
-    //public SoundEffectPlayer(AudioSource sfxSource, AudioClip audioClip)
-    public SoundEffectPlayer(AudioClip audioClip)
+    public class SoundEffectPlayer
     {
-        //this.sfxSource = sfxSource;
-        this.audioClip = audioClip;
-    }
+        private AudioClip audioClip;
+        private AudioSourceOneShot source;
 
-    //public AudioSourceOneShot Play()
-    //{
-    //    AudioSourceOneShot prefab = AllPrefabs.Instance.AudioSourceOneShot;
-    //    source = Object.Instantiate(prefab);
-    //    source.Play(audioClip);
-    //    return source;
-    //}
+        //public SoundEffectPlayer(AudioSource sfxSource, AudioClip audioClip)
+        public SoundEffectPlayer(AudioClip audioClip)
+        {
+            //this.sfxSource = sfxSource;
+            this.audioClip = audioClip;
+        }
 
-    public void Stop()
-    {
-        source.Stop();
-    }
+        //public AudioSourceOneShot Play()
+        //{
+        //    AudioSourceOneShot prefab = AllPrefabs.Instance.AudioSourceOneShot;
+        //    source = Object.Instantiate(prefab);
+        //    source.Play(audioClip);
+        //    return source;
+        //}
 
-    public bool IsPlaying()
-    {
-        return source != null && source.IsPlaying();
+        public void Stop()
+        {
+            source.Stop();
+        }
+
+        public bool IsPlaying()
+        {
+            return source != null && source.IsPlaying();
+        }
     }
 }

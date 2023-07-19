@@ -2,24 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioSourceOneShot : MonoBehaviour
+namespace ZemReusables
 {
-    private AudioSource sfxSource;
-
-    public void Play(AudioClip audioClip)
+    public class AudioSourceOneShot : MonoBehaviour
     {
-        sfxSource = GetComponent<AudioSource>();
-        sfxSource.PlayOneShot(audioClip);
-        Destroy(sfxSource.gameObject, audioClip.length);
-    }
+        private AudioSource sfxSource;
 
-    public void Stop()
-    {
-        Destroy(gameObject);
-    }
+        public void Play(AudioClip audioClip)
+        {
+            sfxSource = GetComponent<AudioSource>();
+            sfxSource.PlayOneShot(audioClip);
+            Destroy(sfxSource.gameObject, audioClip.length);
+        }
 
-    public bool IsPlaying()
-    {
-        return sfxSource.isPlaying;
+        public void Stop()
+        {
+            Destroy(gameObject);
+        }
+
+        public bool IsPlaying()
+        {
+            return sfxSource.isPlaying;
+        }
     }
 }

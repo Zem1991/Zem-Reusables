@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Percent
+namespace ZemReusables
 {
-    [SerializeField][Range(0, 100)] private int current = 1;
-    public int Current { get => current; private set => current = value; }
-
-    //public static int operator +(Percent p) => p.Current;
-
-    public Percent(int current)
+    [System.Serializable]
+    public class Percent
     {
-        Current = current;
-    }
+        [SerializeField][Range(0, 100)] private int current = 1;
+        public int Current { get => current; private set => current = value; }
 
-    public override string ToString()
-    {
-        return $"{Current}%";
+        //public static int operator +(Percent p) => p.Current;
+
+        public Percent(int current)
+        {
+            Current = current;
+        }
+
+        public override string ToString()
+        {
+            return $"{Current}%";
+        }
     }
 }

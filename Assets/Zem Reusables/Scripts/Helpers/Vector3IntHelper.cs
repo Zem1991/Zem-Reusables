@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Vector3IntHelper
+namespace ZemReusables
 {
-    public static List<Vector3Int> GetFromRadius(int radius)
+    public static class Vector3IntHelper
     {
-        List<Vector3Int> result = new List<Vector3Int>();
-        if (radius < 0) return result;
-        for (int z = -radius; z <= radius; z++)
+        public static List<Vector3Int> ListPositions(int radius)
         {
-            for (int y = -radius; y <= radius; y++)
+            List<Vector3Int> result = new List<Vector3Int>();
+            if (radius < 0) return result;
+            for (int z = -radius; z <= radius; z++)
             {
-                for (int x = -radius; x <= radius; x++)
+                for (int y = -radius; y <= radius; y++)
                 {
-                    Vector3Int current = new Vector3Int(x, y, z);
-                    float distance = Vector3Int.Distance(Vector3Int.zero, current);
-                    if (distance > radius) continue;
-                    result.Add(current);
+                    for (int x = -radius; x <= radius; x++)
+                    {
+                        Vector3Int current = new Vector3Int(x, y, z);
+                        float distance = Vector3Int.Distance(Vector3Int.zero, current);
+                        if (distance > radius) continue;
+                        result.Add(current);
+                    }
                 }
             }
+            return result;
         }
-        return result;
     }
 }

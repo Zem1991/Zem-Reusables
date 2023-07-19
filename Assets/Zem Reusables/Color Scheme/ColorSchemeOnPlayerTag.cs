@@ -2,32 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorSchemeOnPlayerTag
+namespace ZemReusables
 {
-    private ColorScheme color;
-    public ColorScheme Color { get => color; private set => color = value; }
-
-    public ColorSchemeOnPlayerTag(ColorScheme color)
+    public class ColorSchemeOnPlayerTag
     {
-        Color = color;
-    }
+        private ColorScheme color;
+        public ColorScheme Color { get => color; private set => color = value; }
 
-    public void Apply(GameObject target)
-    {
-        Color mainColor = Color.GetMain();
-        var sprites = target.GetComponentsInChildren<SpriteRenderer>();
-        foreach (var item in sprites)
+        public ColorSchemeOnPlayerTag(ColorScheme color)
         {
-            if (!item.CompareTag("Player")) continue;
-            item.color = mainColor;
+            Color = color;
         }
-    }
 
-    public void Apply(List<GameObject> targetList)
-    {
-        foreach (var item in targetList)
+        public void Apply(GameObject target)
         {
-            Apply(item);
+            Color mainColor = Color.GetMain();
+            var sprites = target.GetComponentsInChildren<SpriteRenderer>();
+            foreach (var item in sprites)
+            {
+                if (!item.CompareTag("Player")) continue;
+                item.color = mainColor;
+            }
+        }
+
+        public void Apply(List<GameObject> targetList)
+        {
+            foreach (var item in targetList)
+            {
+                Apply(item);
+            }
         }
     }
 }

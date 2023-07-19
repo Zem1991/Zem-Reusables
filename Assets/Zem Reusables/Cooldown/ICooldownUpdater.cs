@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICooldownUpdater
+namespace ZemReusables
 {
-    public void UpdateCooldowns(float deltaTime);
+    public interface ICooldownUpdater
+    {
+        public void UpdateCooldowns(float deltaTime);
+    }
 }
