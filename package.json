@@ -1,0 +1,11 @@
+{
+    "name": "com.zem.zem-reusables",
+    "version": "0.0.0",
+    "displayName": "Zem Reusables",
+    "description": "Stuff I keep reusing every time I start a new Unity project.",
+    "author": {
+        "name": "Zem1991",
+        "email": "felipelopeszem@hotmail.com",
+        "url": "https://github.com/Zem1991"
+    }
+}
