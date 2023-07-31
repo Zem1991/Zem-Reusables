@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ZemReusables
 {
-    [CreateAssetMenu(menuName = "Project Data/Dialogue/Line")]
+    [CreateAssetMenu(menuName = "Zem Reusables/Dialogue/Line")]
     public class DialogueLineData : ScriptableObject
     {
         //[SerializeField] private CharacterData character;

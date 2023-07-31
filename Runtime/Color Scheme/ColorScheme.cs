@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ZemReusables
 {
-    [CreateAssetMenu(menuName = "Zem Reusables/ColorScheme")]
+    [CreateAssetMenu(menuName = "Zem Reusables/Color Scheme")]
     public class ColorScheme : ScriptableObject
     {
         [SerializeField] private Color main = Color.blue;
