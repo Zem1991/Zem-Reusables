@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ZemReusables
 {
-    public abstract class PseudoDictionaryScriptableObject<K, V> : ScriptableObject
+    public abstract class PseudoDictionaryScriptableObject<K, V>// : ScriptableObject
     {
         [Header("List")]
         [SerializeField] protected List<PseudoItem<K, V>> items = new();

@@ -15,7 +15,8 @@ namespace ZemReusables
             float currentWeightIndex = 0;
             foreach (var item in from weightedItem in sequence select new { Value = weightedItem, Weight = weightSelector(weightedItem) })
             {
-                currentWeightIndex += item.Weight;
+                float weight = Mathf.Max(0F, item.Weight);
+                currentWeightIndex += weight;
                 //If we've hit or passed the weight we are after for this item then it's the one we want.
                 //if a weight for an item is 0, then the item should never be selected.
                 //Using >= will give 0 weight items a very slim chance to be selected.
